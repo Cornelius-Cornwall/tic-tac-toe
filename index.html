@@ -86,6 +86,7 @@
             let bottomMiddle=document.getElementById("bottom-middle")
             let bottomRight=document.getElementById("bottom-right")
             let character="X"
+            let gameOver=false
             topLeft.addEventListener("click",()=>{
                 console.log("top left clicked")
                 placeifempty(topLeft)
@@ -109,11 +110,37 @@
                 }
             }
             function placeifempty(ele){
+                if(gameover)
+                {return}
                 if (ele.innerText.length==0){
 
                     ele.innerText=character
                     togglePlayer()
+                    gameOver=checkforwin()
+                    
                 }
+            }
+            function checkforwin(){
+                let wins=[
+                    [topLeft,topMiddle, topRight],
+                    [middleLeft, center, middleright],
+                    [bottomleft, bottomMiddle, bottomRight],
+                    [topLeft,middleLeft, bottomLeft,],
+                    [topMiddle, center, bottomMiddle],
+                    [topRight, middleRight, bottomRight],
+                    [topLeft, center, bottomRight],
+                    [topRight, center, bottomLeft],
+            
+                ]
+                for (let row of wins){
+                    if(row[0].innerText.length > 0 &&
+                    row[0].innerText==row[1].innerText &&
+                    row[1].innerText==row[2].innerText
+                    ){
+                        return true
+                    }
+                }
+                return false
             }
             </script>
     </body>
