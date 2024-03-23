@@ -44,19 +44,33 @@
         width: 50px;
         height: 50px;
     }
+    .row{
+        display: flex;
+        flex-flow: row;
+        width: 150px;
+    }
 </style>
     </head>
     <body>
         <main>
-            <div class="square" id="top-left"></div>
-            <div class="square" id="top-middle"></div>
-            <div class="square" id="top-right"></div>
-            <div class="square" id="middle-left"></div>
-            <div class="square" id="center"></div>
-            <div class="square" id="middle-right"></div>
-            <div class="square" id="bottom-left"></div>
-            <div class="square" id="bottom-middle"></div>
-            <div class="square" id="bottom-right"></div>
+            <div class="row" id="top-row">
+
+                <div class="square" id="top-left"></div>
+                <div class="square" id="top-middle"></div>
+                <div class="square" id="top-right"></div>
+            </div>
+            <div class="row" id="middle-row">
+
+                <div class="square" id="middle-left"></div>
+                <div class="square" id="center"></div>
+                <div class="square" id="middle-right"></div>
+            </div>
+            <div class="row" id="bottom-row">
+                <div class="square" id="bottom-left"></div>
+                <div class="square" id="bottom-middle"></div>
+                <div class="square" id="bottom-right"></div>
+
+            </div>
         </main>
     </body>
 </html>
