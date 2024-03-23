@@ -92,6 +92,7 @@
             let bottomLeft=document.getElementById("bottom-left")
             let bottomMiddle=document.getElementById("bottom-middle")
             let bottomRight=document.getElementById("bottom-right")
+            let Reset=document.getElementById("reset")
             let character="X"
             let gameOver=false
             topLeft.addEventListener("click",()=>{
@@ -108,6 +109,19 @@
             bottomLeft.addEventListener("click",()=>{ placeifempty(bottomLeft)})
             bottomMiddle.addEventListener("click",()=>{ placeifempty(bottomMiddle)})
             bottomRight.addEventListener("click",()=>{ placeifempty(bottomRight)})
+            Reset.addEventListener("click",()=>{ 
+                gameOver=false
+                let squares=document.getElementsByClassName("square")
+                for(let i=0;i<squares.length;i++){
+                    let ele=squares[i]
+                    ele.innerText=""
+                    
+                }
+                let GB=document.getElementById("game-board")
+                    let WS=document.getElementById("win-screen")
+                    WS.style.display="none"
+                    GB.style.display="block"
+            })
 
             function togglePlayer() {
                 if (character == "X"){
