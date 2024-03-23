@@ -89,6 +89,7 @@
             topLeft.addEventListener("click",()=>{
                 console.log("top left clicked")
                 topLeft.innerText=character
+                togglePlayer()
             })
             topMiddle.addEventListener("click",()=>{})
             topRight.addEventListener("click",()=>{})
@@ -98,6 +99,14 @@
             bottomLeft.addEventListener("click",()=>{})
             bottomMiddle.addEventListener("click",()=>{})
             bottomRight.addEventListener("click",()=>{})
+            function togglePlayer() {
+                if (character == "X"){
+                    character="O"
+                }else{
+                    character="X"
+
+                }
+            }
             </script>
     </body>
 </html>
