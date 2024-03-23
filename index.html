@@ -88,10 +88,11 @@
             let character="X"
             topLeft.addEventListener("click",()=>{
                 console.log("top left clicked")
-                topLeft.innerText=character
-                togglePlayer()
+                placeifempty(topLeft)
             })
-            topMiddle.addEventListener("click",()=>{})
+            topMiddle.addEventListener("click",()=>{
+                placeifempty(topMiddle)
+            })
             topRight.addEventListener("click",()=>{})
             middleLeft.addEventListener("click",()=>{})
             center.addEventListener("click",()=>{})
@@ -105,6 +106,13 @@
                 }else{
                     character="X"
 
+                }
+            }
+            function placeifempty(ele){
+                if (ele.innerText.length==0){
+
+                    ele.innerText=character
+                    togglePlayer()
                 }
             }
             </script>
