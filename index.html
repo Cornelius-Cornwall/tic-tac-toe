@@ -2,7 +2,7 @@
 <html>
     <head>
 <style>
-    main{
+    #game-board {
         border-collapse: collapse;
     }
     #top-left{
@@ -20,8 +20,6 @@
     #middle-left{
         border-left:none ;
         
-    }
-    #center{
     }
     #middle-right{
         border-right:none ;
@@ -52,32 +50,37 @@
         flex-flow: row;
         width: 150px;
     }
-    #win-image {
+    #win-screen {
         display: none;
     }
 </style>
     </head>
     <body>
         <main>
-            <div class="row" id="top-row">
-
-                <div class="square" id="top-left"></div>
-                <div class="square" id="top-middle"></div>
-                <div class="square" id="top-right"></div>
+            <header>
+                <h1>Ren's Tic Tac Toe!</h1>
+            </header>
+            <div id="game-board">
+                <div class="row" id="top-row">
+                    <div class="square" id="top-left"></div>
+                    <div class="square" id="top-middle"></div>
+                    <div class="square" id="top-right"></div>
+                </div>
+                <div class="row" id="middle-row">
+                    <div class="square" id="middle-left"></div>
+                    <div class="square" id="center"></div>
+                    <div class="square" id="middle-right"></div>
+                </div>
+                <div class="row" id="bottom-row">
+                    <div class="square" id="bottom-left"></div>
+                    <div class="square" id="bottom-middle"></div>
+                    <div class="square" id="bottom-right"></div>
+                </div>
             </div>
-            <div class="row" id="middle-row">
-
-                <div class="square" id="middle-left"></div>
-                <div class="square" id="center"></div>
-                <div class="square" id="middle-right"></div>
+            <div id="win-screen">
+                <button type="button" id="reset" >Reset</button>
+                <img id="win-image" src="./image.png" />
             </div>
-            <div class="row" id="bottom-row">
-                <div class="square" id="bottom-left"></div>
-                <div class="square" id="bottom-middle"></div>
-                <div class="square" id="bottom-right"></div>
-
-            </div>
-            <img id="win-image" src="./image.png" />
         </main>
         <script type="module" >
             let topLeft=document.getElementById("top-left")
@@ -105,6 +108,7 @@
             bottomLeft.addEventListener("click",()=>{ placeifempty(bottomLeft)})
             bottomMiddle.addEventListener("click",()=>{ placeifempty(bottomMiddle)})
             bottomRight.addEventListener("click",()=>{ placeifempty(bottomRight)})
+
             function togglePlayer() {
                 if (character == "X"){
                     character="O"
@@ -113,6 +117,7 @@
 
                 }
             }
+
             function placeifempty(ele){
                 if(gameOver)
                 {return}
@@ -124,7 +129,18 @@
                     
                 }
             }
+
             function checkforwin(){
+                let hasWon=hasWonTheGame()
+                if (hasWon){
+                    let GB=document.getElementById("game-board")
+                    let WS=document.getElementById("win-screen")
+                    GB.style.display="none"
+                    WS.style.display="block"
+                }
+                return hasWon
+            }
+            function hasWonTheGame(){
                 let wins=[
                     [topLeft,topMiddle, topRight],
                     [middleLeft, center, middleRight],
@@ -146,6 +162,7 @@
                 }
                 return false
             }
+
             </script>
     </body>
 </html>
