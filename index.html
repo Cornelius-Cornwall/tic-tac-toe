@@ -93,13 +93,13 @@
             topMiddle.addEventListener("click",()=>{
                 placeifempty(topMiddle)
             })
-            topRight.addEventListener("click",()=>{})
-            middleLeft.addEventListener("click",()=>{})
-            center.addEventListener("click",()=>{})
-            middleRight.addEventListener("click",()=>{})
-            bottomLeft.addEventListener("click",()=>{})
-            bottomMiddle.addEventListener("click",()=>{})
-            bottomRight.addEventListener("click",()=>{})
+            topRight.addEventListener("click",()=>{ placeifempty( topRight)})
+            middleLeft.addEventListener("click",()=>{ placeifempty(middleLeft)})
+            center.addEventListener("click",()=>{ placeifempty(center)})
+            middleRight.addEventListener("click",()=>{ placeifempty(middleRight)})
+            bottomLeft.addEventListener("click",()=>{ placeifempty(bottomLeft)})
+            bottomMiddle.addEventListener("click",()=>{ placeifempty(bottomMiddle)})
+            bottomRight.addEventListener("click",()=>{ placeifempty(bottomRight)})
             function togglePlayer() {
                 if (character == "X"){
                     character="O"
